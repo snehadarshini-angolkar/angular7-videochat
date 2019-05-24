@@ -1,21 +1,71 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>My id - {{mypeerid}}</h1>
+<input [(ngModel)]="anotherid" type="text" name="anotherid">
 
-<router-outlet></router-outlet>
+<!--<input type="text" [(ngModel)]="anotherid">-->
+<button (click)="videoconnect()" mat-fab class="green" *ngIf="!onCall"><i class="material-icons md-light ">
+  video_call
+</i></button>
+<button (click)="close()" mat-fab class="red" *ngIf="onCall"><i class="material-icons md-light">
+  close
+</i></button>
+{{speechData}}
+
+<!--<button (click)="connect()">Connect</button>-->
+<!--<video #myvideo></video>-->
+
+
+<div class="video-container">
+  <mat-grid-list cols="1" rowHeight="1:1">
+    <mat-grid-tile>
+      <video #myvideo id="self" muted="muted"></video>
+    </mat-grid-tile>
+  </mat-grid-list>
+   <!-- <mat-grid-tile>
+      <video #myvideo2></video>
+    </mat-grid-tile>-->
+  <mat-grid-list cols="1" rowHeight="1:1">
+   <!-- <mat-grid-tile  *ngFor="let stream of peerStreams">
+      <video [srcObject]="stream" autoplay id="{{stream.id}}"></video>
+    </mat-grid-tile>-->
+
+  </mat-grid-list>
+  <mat-grid-list cols="1" rowHeight="1:1">
+
+    <mat-grid-tile  *ngFor="let stream of peer.connections[this.anotherid]">
+      <div *ngIf="tempId !== stream?.remoteStream?.id">
+        <video [srcObject]="stream['remoteStream']" autoplay></video>
+      </div>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <div class="content">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label></label>
+                <!--<input type="text" class="form-control border-input" name="txtSpeechSearchMovieName" id="txtSpeechSearchMovieName" value=""
+                       placeholder="Click below button and then say something!!!" [(ngModel)]="speechData">-->
+                {{speechData}}
+              </div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <br />
+
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

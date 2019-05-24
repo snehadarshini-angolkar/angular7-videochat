@@ -1,0 +1,46 @@
+.green {
+  background-color: green;
+  margin-left:20px
+}
+.red {
+  background-color: red;
+  margin-left:20px
+}
+.video-container {
+  height:480px;
+  width:640px;
+  /*overflow: hidden;
+  position: relative;*/
+  //background-color: aquamarine;
+/*  & div:before {
+    content: ‘’;
+    width: 300px;
+    height: 400px;
+    background: inherit;
+    position: absolute;
+    //left: -25px;  //giving minus -25px left position
+    //right: 0;
+    //top: -25px;   //giving minus -25px top position
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.3);
+    filter: blur(10px);
+  }*/
+}
+.mat-grid-tile {
+ // background-color: aquamarine;
+ // opacity: 0.3;
+}
+input {
+  font: inherit;
+  //background: 0 0;
+  //color: currentColor;
+ // border: none;
+  //outline: 0;
+  padding: 15px;
+  //margin: 0;
+  width: 10%;
+ // max-width: 100%;
+//  vertical-align: bottom;
+//  text-align: inherit;
+}
+
