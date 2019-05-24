@@ -69,8 +69,6 @@ export class AppComponent implements OnInit, OnDestroy {
       n.getUserMedia({video: true, audio: true}, (stream) => {
         call.answer(stream);
         call.on('stream', (remotestream) => {
- /*         this.video2.srcObject = remotestream;
-          this.video2.play();*/
           const existingStream = this.peerStreams.find((peerstream) => peerstream.id == remotestream.id);
           if (!existingStream) {
             this.peerStreams.push(remotestream);
@@ -111,8 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
     n.getUserMedia = ( n.getUserMedia || n.webkitGetUserMedia || n.mozGetUserMedia  || n.msGetUserMedia );
 
     navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((stream) => {
-      // this.video.srcObject = stream;
-      // return this.video.play();
+
       const call = this.peer.call(this.anotherid, stream);
       call.on('stream', (remoteStream) => {
         this.video.srcObject = remoteStream;
@@ -124,7 +121,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }).catch((error) => {
       console.log(error);
     });
-   // this.activateSpeechSearchMovie();
+    this.activateSpeechSearchMovie();
   }
 
   activateSpeechSearchMovie(): void {

@@ -210,7 +210,7 @@
     <mat-grid-list cols="1" rowHeight="1:1">
 
       <mat-grid-tile  *ngFor="let stream of peer.connections[this.anotherid]">
-        <div *ngIf="tempId !== stream?.remoteStream?.id">
+        <div>
           <video [srcObject]="stream['remoteStream']" autoplay></video>
         </div>
 
