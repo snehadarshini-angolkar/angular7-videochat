@@ -193,7 +193,7 @@
 
 
   <div class="video-container">
-    <mat-grid-list cols="1" rowHeight="1:1">
+    <mat-grid-list cols="2" rowHeight="1:1">
       <mat-grid-tile>
         <video #myvideo id="self" muted="muted"></video>
       </mat-grid-tile>
@@ -201,13 +201,13 @@
     <!-- <mat-grid-tile>
        <video #myvideo2></video>
      </mat-grid-tile>-->
-    <mat-grid-list cols="1" rowHeight="1:1">
+    <mat-grid-list cols="2" rowHeight="1:1">
       <mat-grid-tile  *ngFor="let stream of peerStreams">
         <video [srcObject]="stream" autoplay id="{{stream.id}}"></video>
       </mat-grid-tile>
 
     </mat-grid-list>
-    <mat-grid-list cols="1" rowHeight="1:1">
+    <mat-grid-list cols="2" rowHeight="1:1">
 
       <mat-grid-tile  *ngFor="let stream of peer.connections[this.anotherid]">
         <div>
